@@ -1,0 +1,13 @@
+version: '3.4'
+services:
+  shiny:
+    container_name: productor_app
+    image: productor_app_basis
+    restart: always
+    user: 'root'
+    ports:
+      - '3000:3838'
+    volumes:
+      - './shiny/shiny-server.conf:/etc/shiny-server/shiny-server.conf'
+      - './shiny/app.R:/app/app.R'
+      - './.env:/app/.Renviron'
